@@ -1,0 +1,32 @@
+@minimalapi_HostAddress = http://localhost:5041
+
+GET {{minimalapi_HostAddress}}/movies
+Accept: application/json
+###
+
+GET {{minimalapi_HostAddress}}/movies/1
+Accept: application/json
+###
+
+### Nieuwe film aanmaken
+POST {{minimalapi_HostAddress}}/movies
+Content-Type: application/json
+
+{
+    "title": "InterCity",
+    "year": 1990
+}
+###
+
+DELETE {{minimalapi_HostAddress}}/movies/5
+Accept: application/json
+
+###
+
+PUT  {{minimalapi_HostAddress}}/movies/6
+Content-Type: application/json
+
+{
+   "title": "george vs mustafa",
+    "year": 2026
+}

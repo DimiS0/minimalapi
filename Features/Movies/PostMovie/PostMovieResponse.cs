@@ -1,0 +1,1 @@
+public record PostMovieResponse(int Id, string Title, int Year);
