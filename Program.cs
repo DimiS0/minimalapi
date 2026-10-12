@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddValidation();
 
 builder.Services.AddScoped<IProjectStore, EfProjectStore>();
+builder.Services.AddScoped<IBlogStore, EfBlogStore>();
 
 var connectionString = builder.Configuration.GetConnectionString("ProjectsDatabase");
 builder.Services.AddDbContext<ProjectDb>(options => options.UseSqlServer(connectionString));
@@ -21,5 +22,6 @@ if (app.Environment.IsDevelopment())
 
 
 app.MapProjectEndpoints();
+app.MapBlogEndpoints();
 
 app.Run();

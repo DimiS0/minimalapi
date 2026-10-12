@@ -7,4 +7,5 @@ public class ProjectDb : DbContext
         
     }
     public DbSet<Project> Projects => Set<Project>();
+    public DbSet<Blog> Blogs => Set<Blog>();
 }
