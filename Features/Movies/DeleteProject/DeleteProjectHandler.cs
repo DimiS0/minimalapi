@@ -1,6 +1,6 @@
-public static class DeleteMovieHandler
+public static class DeleteProjectHandler
 {
-    public static async Task<IResult> Handle (int id, IMovieStore store)
+    public static async Task<IResult> Handle (int id, IProjectStore store)
     {
     var IsDeleted = await store.DeleteAsync(id);
 

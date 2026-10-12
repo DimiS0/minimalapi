@@ -1,15 +1,15 @@
 @minimalapi_HostAddress = http://localhost:5041
 
-GET {{minimalapi_HostAddress}}/movies
+GET {{minimalapi_HostAddress}}/projects
 Accept: application/json
 ###
 
-GET {{minimalapi_HostAddress}}/movies/1
+GET {{minimalapi_HostAddress}}/projects/1
 Accept: application/json
 ###
 
 ### Nieuwe film aanmaken
-POST {{minimalapi_HostAddress}}/movies
+POST {{minimalapi_HostAddress}}/projects
 Content-Type: application/json
 
 {
@@ -18,12 +18,12 @@ Content-Type: application/json
 }
 ###
 
-DELETE {{minimalapi_HostAddress}}/movies/5
+DELETE {{minimalapi_HostAddress}}/projects/5
 Accept: application/json
 
 ###
 
-PUT  {{minimalapi_HostAddress}}/movies/6
+PUT  {{minimalapi_HostAddress}}/projects/6
 Content-Type: application/json
 
 {

@@ -1,17 +1,25 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
-using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddValidation();
 
-builder.Services.AddScoped<IMovieStore, EfMovieStore>();
+builder.Services.AddScoped<IProjectStore, EfProjectStore>();
 
-var connectionString = builder.Configuration.GetConnectionString("MovieDatabase");
-builder.Services.AddDbContext<MovieDb>(options => options.UseSqlServer(connectionString));
+var connectionString = builder.Configuration.GetConnectionString("ProjectsDatabase");
+builder.Services.AddDbContext<ProjectDb>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.MapMovieEndpoints();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
+app.MapProjectEndpoints();
+
 app.Run();
