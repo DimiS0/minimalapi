@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-public class CreateMovieRequest
+public class CreateProjectRequest
 {
     [Required]
     [StringLength(100)]
@@ -27,6 +27,5 @@ public class CreateMovieRequest
     [StringLength(30)]
     public string Tag { get; set; }
 
-    [DataType(DataType.Date)]
        public DateTime Datum { get; set; }
 }

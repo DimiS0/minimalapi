@@ -6,7 +6,7 @@
      var projects = await store.GetAllAsync();
 
         var response = projects.Select(project =>
-            new GetMoviesResponse(
+            new GetProjectsResponse(
                 project.Id,
                 project.Title,
                 project.Beschrijving,

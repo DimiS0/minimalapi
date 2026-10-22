@@ -1,4 +1,4 @@
-public static class MovieEndpoints
+public static class ProjectEndpoints
 {
     public static RouteGroupBuilder MapProjectEndpoints(this IEndpointRouteBuilder endpoints)
     {

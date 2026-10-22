@@ -1,7 +1,7 @@
 
 public static class PostProjectHandler
 {
-    public static async Task<IResult> Handle(CreateMovieRequest request,IProjectStore store)
+    public static async Task<IResult> Handle(CreateProjectRequest request,IProjectStore store)
     {
         var newProject = await store.AddAsync(request.Title, request.Beschrijving, request.Afbeedling, request.Alt, request.ProjectLink, request.Tag, request.Datum);
 

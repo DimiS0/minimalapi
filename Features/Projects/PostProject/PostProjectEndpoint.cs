@@ -1,5 +1,5 @@
 
-public static class PostMovieEndpoint
+public static class PostProjectEndpoint
 {
     public static RouteHandlerBuilder MapPostProjectEndpoint(
         this RouteGroupBuilder group)
