@@ -1,0 +1,1 @@
+public record GetBlogResponse(int Id,string Title,string Beschrijving,DateOnly Datum,string ContentLink);

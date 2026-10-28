@@ -1,1 +1,0 @@
-public record GetMovieResponse(int Id, string Title, int Year);

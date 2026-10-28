@@ -1,0 +1,1 @@
+public record GetProjectResponse(int Id, string Title, string Beschrijving, string Afbeedling, string alt,string ProjectLink,string  Tag, DateTime Datum);
