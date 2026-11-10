@@ -20,7 +20,7 @@ Controleer je versie met `dotnet --version`
 ## Applicatie starten en sluiten
 1. Voer in de projectmap uit:
 
-       `dotnet run`
+       dotnet run
 
 2. Als je klaar bent kun je de aplicatie stoppen door in de terminal `ctrl c`
 
