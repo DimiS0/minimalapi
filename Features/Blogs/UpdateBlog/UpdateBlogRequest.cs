@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 public class UpdateBlogRequest
 {
     [Required]
-    [StringLength(30)]
+    [StringLength(100)]
      public string Title { get; set; } = "";
      [Required]
      [StringLength(250)]

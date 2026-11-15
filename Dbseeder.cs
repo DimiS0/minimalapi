@@ -8,13 +8,18 @@ public static class DbSeeder
 
        var UserManager =  scope.ServiceProvider.GetRequiredService<UserManager<User>>();
        var RoleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+       var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
-       const string adminrole = "Admin";
+       foreach (var rol in new [] {"Gast", "Admin"}){
 
-       if (!await RoleManager.RoleExistsAsync(adminrole)){
+       if (!await RoleManager.RoleExistsAsync(rol)){
 
-            await RoleManager.CreateAsync(new IdentityRole(adminrole));
+            await RoleManager.CreateAsync(new IdentityRole(rol));
         }
+       }
+
+       var wachtwoord = config["Seed:AdminPassword"];
+       if (wachtwoord == null) {return;}
 
         var admin = await UserManager.FindByEmailAsync("dimistoyanov8@gmail.com");
 
@@ -27,12 +32,12 @@ public static class DbSeeder
                 EmailConfirmed = true
             };
 
-            await UserManager.CreateAsync(admin, "Admin123!");
+            await UserManager.CreateAsync(admin, wachtwoord);
         }
 
-             if (! await UserManager.IsInRoleAsync(admin, adminrole))
+             if (! await UserManager.IsInRoleAsync(admin, "Admin"))
             {
-                await UserManager.AddToRoleAsync(admin,adminrole);
+                await UserManager.AddToRoleAsync(admin, "Admin");
             }
     }
 }
