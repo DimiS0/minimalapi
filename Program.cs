@@ -20,6 +20,22 @@ builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ProjectDb>().AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(o =>
+{
+     o.Events.OnRedirectToLogin = ctx =>{
+
+        ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        return Task.CompletedTask; 
+    };
+    
+    o.Events.OnRedirectToAccessDenied = ctx =>
+    {
+        ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
+        return Task.CompletedTask;
+    };
+});
+
 builder.Services.AddAuthorizationBuilder().AddPolicy("Admin", policy => policy.RequireRole("Admin"));
 
 
