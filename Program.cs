@@ -8,6 +8,7 @@ builder.Services.AddValidation();
 
 builder.Services.AddScoped<IProjectStore, EfProjectStore>();
 builder.Services.AddScoped<IBlogStore, EfBlogStore>();
+builder.Services.AddScoped<IUserStore, EfUserStore>();
 
 var connectionString = builder.Configuration.GetConnectionString("ProjectsDatabase");
 builder.Services.AddDbContext<ProjectDb>(options => options.UseSqlServer(connectionString));
@@ -18,7 +19,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityApiEndpoints<User>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ProjectDb>();
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ProjectDb>().AddDefaultTokenProviders();
 builder.Services.AddAuthorizationBuilder().AddPolicy("Admin", policy => policy.RequireRole("Admin"));
 
 
@@ -37,7 +38,7 @@ app.UseAuthorization();
 
 app.MapProjectEndpoints();
 app.MapBlogEndpoints();
-app.MapGroup("/auth").MapIdentityApi<User>();
+app.MapUserEndpoints();
 
  await DbSeeder.Seeder(app.Services);
 
