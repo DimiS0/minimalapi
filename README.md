@@ -20,7 +20,7 @@ Controleer je versie met `dotnet --version`
 ## Applicatie starten en sluiten
 1. Voer in de projectmap uit:
 
-       `dotnet run`
+       dotnet run
 
 2. Als je klaar bent kun je de aplicatie stoppen door in de terminal `ctrl c`
 
@@ -29,3 +29,10 @@ Controleer je versie met `dotnet --version`
 de endpoints kan je via de file minimalapi.http testen dit is handmatig en dan moet je op send request drukken om een response te krijgen, maar je kan ook met swagger testen 
 
 - Open in je browser de URL die in de terminal staat, met `/swagger` erachter, bijvoorbeeld voor mij stond er in de terminal http://localhost:5041 dus wordt het `http://localhost:5041/swagger`. Daar kun je alle endpoints makkelijk testen.
+
+## seeder wachtwoord veranderen
+1. : 
+ dotnet user-secrets init
+
+2. :
+dotnet user-secrets set "Seed:AdminPassword" "<eigen wachtwoord>"

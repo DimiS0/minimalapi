@@ -6,6 +6,9 @@ public static class BlogEndpoints{
         
         blogs.MapGetBlogEndpoint();
         blogs.MapGetBlogsEndpoint();
+        blogs.MapPostBlogEndpoint();
+        blogs.MapUpdateBlogEndpoint();
+        blogs.MapDeleteBlogEndpoint();
 
         return blogs;
     }
